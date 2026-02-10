@@ -1,0 +1,93 @@
+# Achriom MCP Server - Smithery Configuration
+# https://smithery.ai/docs/build/project-config/smithery-yaml
+
+name: achriom
+displayName: Achriom
+description: |
+  The media memory layer for AI agents and their humans. Track, analyze, and get
+  recommendations across books, movies, music, TV shows, and anime with an AI
+  librarian that knows your taste.
+
+# Achriom is a remote hosted server - not built/deployed by Smithery
+runtime: remote
+
+# Connection configuration
+startCommand:
+  type: http
+  # Base URL - api_key will be appended as query parameter
+  url: https://mcp.achriom.com/mcp
+
+  # Configuration schema for user-provided settings
+  configSchema:
+    type: object
+    properties:
+      api_key:
+        type: string
+        description: Your Achriom API key (get from app.achriom.com/settings)
+    required:
+      - api_key
+
+  # How to construct the final URL with config values
+  # Result: https://mcp.achriom.com/mcp?api_key={api_key}
+  urlTemplate: "https://mcp.achriom.com/mcp?api_key={{api_key}}"
+
+# Authentication methods supported
+authentication:
+  # Primary: API key as query parameter
+  api_key:
+    parameter: api_key
+    location: query_string
+    obtain: "Get from app.achriom.com/settings → Connect to AI Tools"
+  # Secondary: OAuth for ChatGPT
+  oauth:
+    supported: true
+    provider: achriom
+
+# Server capabilities
+capabilities:
+  tools: 29
+  prompts: 10
+  resources: true
+
+# Categorization
+categories:
+  - media
+  - productivity
+  - entertainment
+  - library
+  - recommendations
+
+tags:
+  - books
+  - movies
+  - music
+  - albums
+  - tv-shows
+  - anime
+  - ai-librarian
+  - collection-tracking
+  - recommendations
+  - apple-music
+  - youtube
+
+# Requirements
+requirements:
+  account: true
+  subscription:
+    tier: pro
+    price: $9.99/month
+    free_tier: true
+
+# Links
+links:
+  homepage: https://www.achriom.com
+  documentation: https://www.achriom.com/mcp
+  signup: https://app.achriom.com/signup
+  support: mailto:hello@achriom.com
+  repository: https://github.com/achriom/achriom-mcp
+
+# Publisher info
+publisher:
+  name: Achriom
+  url: https://www.achriom.com
+  email: hello@achriom.com
