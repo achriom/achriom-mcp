@@ -82,7 +82,7 @@
         "oauth": {
           "supported": true,
           "provider": "achriom",
-          "note": "Used by ChatGPT connector"
+          "note": "Used by Claude and ChatGPT connectors"
         }
       }
     },
@@ -91,17 +91,9 @@
       "signup": "https://app.achriom.com/signup"
     },
     "subscription": {
-      "required_for": "mcp_access",
-      "tier": "pro",
-      "price": {
-        "amount": 9.99,
-        "currency": "USD",
-        "period": "month"
-      },
-      "free_tier": {
-        "messages": 50,
-        "items": "unlimited"
-      }
+      "required": false,
+      "notes": "MCP access is free for all accounts. Pro removes the 50-message cap.",
+      "free_tier_available": true
     }
   },
 
