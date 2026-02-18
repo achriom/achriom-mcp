@@ -4,7 +4,7 @@ The media memory layer for AI agents and their humans. Track books, movies, musi
 
 Access your Achriom library from Claude, ChatGPT, or any MCP-compatible client.
 
-**29 tools** · **10 prompts** · **5 media types**
+**29 tools** · **10 prompts** · **5 media types** · **Free for all accounts**
 
 ## What You Get
 
@@ -22,41 +22,34 @@ Plus 10 librarian prompts that shape how AI engages with your collection.
 
 ## Connect
 
-### Claude
+### Claude & Claude Desktop
 
-1. Click **Search and tools** (lower left of chat)
-2. Select **Add connectors**
-3. Click **Add custom connector**
-4. Paste your MCP link from Achriom settings
-5. Click **Connect**
+Requires a paid Claude plan (Pro, Max, Team, or Enterprise).
+
+1. Go to **Settings → Connectors**
+2. Click **Add custom connector**
+3. Enter the name **Achriom** and your MCP URL from [Achriom settings](https://app.achriom.com/settings)
+4. Follow the auth prompts to connect
 
 ### ChatGPT
 
-Requires Developer Mode (Plus/Pro).
+Requires Developer Mode (Plus or Pro).
 
-1. Settings → Apps → Advanced settings → Enable Developer mode
-2. Settings → Connectors → Create
+1. **Settings → Apps** → Enable Developer mode
+2. **Settings → Connectors** → Create
 3. Name: **Achriom**
 4. URL: `mcp.achriom.com/mcp`
-5. Authentication: **OAuth**
-6. Click Connect and sign in
+5. Auth: **OAuth** → sign in with your Achriom account
 
-### Other Clients
+### Other MCP Clients
 
-Add to your MCP config:
+For Cursor, Windsurf, and any HTTP MCP client, use your personal API key:
 
-```json
-{
-  "mcpServers": {
-    "achriom": {
-      "type": "http",
-      "url": "https://mcp.achriom.com/mcp?api_key=YOUR_API_KEY"
-    }
-  }
-}
+```
+https://mcp.achriom.com/mcp?api_key=YOUR_KEY
 ```
 
-Get your API key in [account settings](https://app.achriom.com/settings).
+Get your API key from [account settings](https://app.achriom.com/settings).
 
 ## In-App vs External
 
@@ -66,7 +59,7 @@ External clients get the raw tools. Capable, but less context. Use the app when 
 
 ## Requirements
 
-MCP access requires an Achriom Pro subscription.
+Free Achriom account required. MCP access is included on all plans.
 
 ## Technical Reference
 
