@@ -2,7 +2,7 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.achriom/mcp-server",
   "displayName": "Achriom",
-  "description": "The media memory layer for AI agents. Track, analyze, and get recommendations across books, movies, music, TV shows, and anime with an AI librarian that knows your taste.",
+  "description": "The media memory layer for AI agents and their humans. Track, analyze, and get recommendations across books, movies, music, TV shows, and anime with an AI librarian that knows your taste.",
   "repository": {
     "url": "https://github.com/achriom/achriom-mcp",
     "source": "github"
@@ -93,9 +93,8 @@
       "signup_url": "https://app.achriom.com/signup"
     },
     "subscription": {
-      "required_for": "mcp_access",
-      "tier": "pro",
-      "price": "$9.99/month",
+      "required": false,
+      "notes": "Free account required. MCP access included on all plans.",
       "free_tier_available": true
     }
   },

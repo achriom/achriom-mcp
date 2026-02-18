@@ -74,8 +74,8 @@ tags:
 requirements:
   account: true
   subscription:
-    tier: pro
-    price: $9.99/month
+    required: false
+    notes: "Free account required. MCP access included on all plans."
     free_tier: true
 
 # Links
