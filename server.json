@@ -1,8 +1,8 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "com.achriom/achriom",
+  "name": "io.github.furtherfox/achriom",
   "title": "Achriom",
-  "description": "The media memory layer for AI agents and their humans. Your AI client gets 29 tools to search your collection, add items, update ratings, preview music, and find patterns across everything you've read, watched, and listened to.",
+  "description": "The media memory layer for AI agents and their humans. Books, movies, music, shows, and anime.",
   "version": "1.0.0",
   "websiteUrl": "https://www.achriom.com/mcp",
   "repository": {
