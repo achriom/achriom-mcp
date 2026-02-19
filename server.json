@@ -3,7 +3,7 @@
   "name": "io.github.furtherfox/achriom",
   "title": "Achriom",
   "description": "The media memory layer for AI agents and their humans. Books, movies, music, shows, and anime.",
-  "version": "1.0.0",
+  "version": "1.0.3",
   "websiteUrl": "https://www.achriom.com/mcp",
   "repository": {
     "url": "https://github.com/achriom/achriom-mcp",
