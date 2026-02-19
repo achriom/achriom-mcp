@@ -24,8 +24,7 @@ startCommand:
       api_key:
         type: string
         description: Your Achriom API key (get from app.achriom.com/settings)
-    required:
-      - api_key
+    required: []
 
   # How to construct the final URL with config values
   # Result: https://mcp.achriom.com/mcp?api_key={api_key}
