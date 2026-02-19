@@ -1,6 +1,6 @@
 # Achriom MCP Server
 
-The media memory layer for AI agents and their humans. Track books, movies, music, TV, and anime.
+The media memory layer for AI agents and their humans. Your AI client gets 29 tools to search your collection, add items, update ratings, preview music, and find patterns across everything you've read, watched, and listened to.
 
 Access your Achriom library from Claude, ChatGPT, or any MCP-compatible client.
 

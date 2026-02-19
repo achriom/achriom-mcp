@@ -16,7 +16,7 @@
   },
 
   "description": {
-    "short": "Track, analyze, and get recommendations across books, movies, music, TV shows, and anime with an AI librarian that knows your taste.",
+    "short": "The media memory layer for AI agents and their humans. Your AI client gets 29 tools to search your collection, add items, update ratings, preview music, and find patterns across everything you've read, watched, and listened to.",
     "long": "Achriom is a personal library that unifies your media collection across five types. The AI librarian learns your patterns, surfaces connections you'd miss, and recommends what to experience next based on mood, theme, or gap in your collection. MCP access gives any AI assistant full librarian capabilities.",
     "use_cases": [
       "Track what you've read, watched, and listened to",
