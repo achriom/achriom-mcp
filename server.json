@@ -1,107 +1,25 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "com.achriom/mcp-server",
-  "displayName": "Achriom",
-  "description": "The media memory layer for AI agents and their humans. Track, analyze, and get recommendations across books, movies, music, TV shows, and anime with an AI librarian that knows your taste.",
+  "name": "com.achriom/achriom",
+  "title": "Achriom",
+  "description": "The media memory layer for AI agents and their humans. Your AI client gets 29 tools to search your collection, add items, update ratings, preview music, and find patterns across everything you've read, watched, and listened to.",
+  "version": "1.0.0",
+  "websiteUrl": "https://www.achriom.com/mcp",
   "repository": {
     "url": "https://github.com/achriom/achriom-mcp",
     "source": "github"
   },
-  "homepage": "https://www.achriom.com",
-  "version": "1.0.0",
-  "license": "Proprietary",
-  "authors": [
+  "remotes": [
     {
-      "name": "Achriom",
-      "email": "hello@achriom.com",
-      "url": "https://www.achriom.com"
-    }
-  ],
-  "keywords": [
-    "media",
-    "library",
-    "books",
-    "movies",
-    "music",
-    "albums",
-    "tv-shows",
-    "anime",
-    "recommendations",
-    "ai-librarian",
-    "collection",
-    "tracking"
-  ],
-  "categories": [
-    "media",
-    "productivity",
-    "entertainment"
-  ],
-  "servers": [
-    {
-      "name": "achriom",
-      "transport": {
-        "type": "http",
-        "url": "https://mcp.achriom.com/mcp"
-      },
-      "authentication": [
-        {
-          "type": "api_key",
-          "description": "API key passed as query parameter",
-          "parameter": "api_key",
-          "location": "query",
-          "instructions": "Get your API key from app.achriom.com/settings"
-        },
-        {
-          "type": "oauth",
-          "provider": "achriom",
-          "description": "OAuth flow for ChatGPT and supported clients"
+      "type": "streamable-http",
+      "url": "https://mcp.achriom.com/mcp?api_key={api_key}",
+      "variables": {
+        "api_key": {
+          "description": "Your Achriom API key. Get from app.achriom.com/settings → Connect to AI Tools",
+          "isRequired": false,
+          "isSecret": true
         }
-      ],
-      "capabilities": {
-        "tools": true,
-        "prompts": true,
-        "resources": true
       }
     }
-  ],
-  "tools": {
-    "count": 29,
-    "featured": [
-      "search",
-      "get_details",
-      "get_stats",
-      "lookup_item",
-      "add_item",
-      "preview_album",
-      "search_youtube",
-      "search_book_content"
-    ]
-  },
-  "prompts": {
-    "count": 10,
-    "featured": [
-      "librarian",
-      "book-analysis",
-      "movie-analysis",
-      "music-analysis",
-      "recommendations"
-    ]
-  },
-  "requirements": {
-    "account": {
-      "required": true,
-      "signup_url": "https://app.achriom.com/signup"
-    },
-    "subscription": {
-      "required": false,
-      "notes": "Free account required. MCP access included on all plans.",
-      "free_tier_available": true
-    }
-  },
-  "links": {
-    "documentation": "https://www.achriom.com/mcp",
-    "support": "mailto:hello@achriom.com",
-    "privacy_policy": "https://www.achriom.com/privacy",
-    "terms_of_service": "https://www.achriom.com/terms"
-  }
+  ]
 }
