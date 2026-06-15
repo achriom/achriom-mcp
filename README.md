@@ -67,9 +67,9 @@ For developers and agents: [docs/](docs/) contains detailed tool and prompt spec
 
 ## Find Us
 
-- [Smithery](https://smithery.ai) — Remote MCP server
-- [Glama](https://glama.ai/mcp/servers) — MCP directory
-- [MCP.so](https://mcp.so) — Community directory
+- [Smithery](https://smithery.ai/servers/achriom/achriom) — Remote MCP server
+- [Glama](https://glama.ai/mcp/connectors/com.achriom.mcp/achriom) — MCP directory
+- [MCP.so](https://mcp.so/server/achriom/achriom) — Community directory
 
 ## Links
 
