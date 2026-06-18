@@ -1,117 +1,78 @@
-# Achriom
+# Achriom MCP Server
 
-The media memory layer for AI agents and their humans. Books, movies, albums, TV shows, and anime — tracked, analyzed, and searchable from Claude, ChatGPT, or any MCP client.
+The media memory layer for AI agents and their humans. Your AI client gets 29 tools to search your collection, add items, update ratings, preview music, and find patterns across everything you've read, watched, and listened to.
 
-**29 tools** · **15 skills** · **5 slash commands** · **5 media types** · **Free for all accounts**
+Access your Achriom library from Claude, ChatGPT, or any MCP-compatible client.
 
----
+**29 tools** · **10 prompts** · **5 media types** · **Free for all accounts**
 
-## Claude / Cowork Plugin
+## What You Get
 
-The full librarian experience — skills, slash commands, and your collection — in one install.
+Everything the in-app librarian uses:
 
-### Install
+- **Search** — By title, creator, genre, theme, or mood
+- **Item details** — Full metadata with AI analysis and your notes
+- **Collection stats** — Patterns across ratings, genres, themes
+- **Read and write** — Update ratings, status, notes from any client
+- **Apple Music previews** — 30-second samples for albums
+- **YouTube search** — Trailers, interviews, video essays
+- **Book search** — Semantic search inside uploaded EPUBs
 
-In **Cowork** or **Claude Desktop**: go to Customize → Plugins → Browse, find Achriom, and click Install.
+Plus 10 librarian prompts that shape how AI engages with your collection.
 
-In **Claude Code**:
-```bash
-claude plugins add achriom/achriom-mcp
-```
+## Connect
 
-When prompted, enter your Achriom API key. Get it from [Settings → Connect to AI Tools](https://app.achriom.com/settings). The key is stored securely and wired up automatically — no manual config needed.
+### Claude & Claude Desktop
 
-### What you get
+Requires a paid Claude plan (Pro, Max, Team, or Enterprise).
 
-**Skills** — activated automatically by the librarian based on context:
+1. Go to **Settings → Connectors**
+2. Click **Add custom connector**
+3. Enter the name **Achriom** and your MCP URL from [Achriom settings](https://app.achriom.com/settings)
+4. Follow the auth prompts to connect
 
-| Skill | When it activates |
-|-------|-------------------|
-| `librarian` | Every conversation about your collection |
-| `book-analysis` | Literary analysis and author deep-dives |
-| `movie-analysis` | Film craft, directors, cinematography |
-| `music-analysis` | Albums, sound, production — always plays tracks |
-| `show-analysis` | Series structure, seasonal arcs, ensemble dynamics |
-| `anime-analysis` | Studios, sakuga, adaptation, cultural context |
-| `recommendations` | "What should I read/watch next?" questions |
-| `collection-insights` | Pattern recognition across your full library |
-| `focused-research` | Deep study on a curated subset of items |
-| `stop-slop` | Writing quality filter — always on |
-
-**Slash commands:**
-
-| Command | Description |
-|---------|-------------|
-| `/achriom:recommend` | Personalized recommendation by mood, theme, or similarity |
-| `/achriom:deep-dive` | Full analysis of a specific book, film, album, show, or anime |
-| `/achriom:discover` | Trace a theme or idea across your entire collection |
-| `/achriom:research` | Focused deep-study mode on a curated subset |
-| `/achriom:collection-review` | Full library audit — patterns, taste profile, gaps |
-
----
-
-## Claude.ai Connector (Tools Only)
-
-If you want just the MCP tools without the librarian skills and slash commands:
-
-1. Go to **Settings → Connectors → Add custom connector**
-2. Name: **Achriom**
-3. URL: `https://mcp.achriom.com/mcp`
-4. Auth: **OAuth** — sign in with your Achriom account
-
-This gives you all 29 tools directly in Claude.ai conversations, without the plugin's skills and commands.
-
----
-
-## ChatGPT
+### ChatGPT
 
 Requires Developer Mode (Plus or Pro).
 
 1. **Settings → Apps** → Enable Developer mode
 2. **Settings → Connectors** → Create
-3. Name: **Achriom**, URL: `mcp.achriom.com/mcp`
-4. Auth: **OAuth** → sign in with your Achriom account
+3. Name: **Achriom**
+4. URL: `mcp.achriom.com/mcp`
+5. Auth: **OAuth** → sign in with your Achriom account
 
----
+### Other MCP Clients
 
-## Other MCP Clients
-
-For Cursor, Windsurf, and any HTTP MCP client:
+For Cursor, Windsurf, and any HTTP MCP client, use your personal API key:
 
 ```
 https://mcp.achriom.com/mcp?api_key=YOUR_KEY
 ```
 
-Get your key from [account settings](https://app.achriom.com/settings).
+Get your API key from [account settings](https://app.achriom.com/settings).
 
-Ready-made config files: [examples/](examples/) (Claude Desktop, Cursor, VS Code).
+## In-App vs External
 
----
+The in-app librarian knows things external clients don't — your conversation history, current research focus, how to present results visually. It's built for the experience.
 
-## What the Tools Do
-
-- **Search** — by title, creator, genre, theme, mood, or rating
-- **Item details** — full metadata with AI analysis and your notes
-- **Collection stats** — patterns across ratings, genres, themes, eras
-- **Read and write** — update ratings, status, notes from any client
-- **Apple Music previews** — 30-second samples inline
-- **YouTube search** — trailers, interviews, video essays
-- **Book search** — semantic search inside uploaded EPUBs and PDFs
-
-Full reference: [docs/TOOLS.md](docs/TOOLS.md) · [docs/PROMPTS.md](docs/PROMPTS.md)
-
----
+External clients get the raw tools. Capable, but less context. Use the app when you want the full experience. Use MCP when you want your data somewhere else.
 
 ## Requirements
 
-Free Achriom account required. MCP access included on all plans. Pro removes the 50-message cap.
+Free Achriom account required. MCP access is included on all plans.
 
-[Sign up](https://app.achriom.com/signup) · [Settings](https://app.achriom.com/settings) · [Support](mailto:hello@achriom.com)
+## Technical Reference
 
----
+For developers and agents: [docs/](docs/) contains detailed tool and prompt specifications.
 
 ## Find Us
 
-- [Smithery](https://smithery.ai/servers/achriom/achriom)
-- [Glama](https://glama.ai/mcp/connectors/com.achriom.mcp/achriom)
-- [MCP.so](https://mcp.so/server/achriom/achriom)
+- [Smithery](https://smithery.ai/servers/achriom/achriom) — Remote MCP server
+- [Glama](https://glama.ai/mcp/connectors/com.achriom.mcp/achriom) — MCP directory
+- [MCP.so](https://mcp.so/server/achriom/achriom) — Community directory
+
+## Links
+
+- [Achriom](https://www.achriom.com)
+- [MCP Documentation](https://www.achriom.com/mcp)
+- [Support](mailto:hello@achriom.com)
