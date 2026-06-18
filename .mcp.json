@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "achriom": {
+      "type": "http",
+      "url": "https://mcp.achriom.com/mcp?api_key=${user_config.api_key}"
+    }
+  }
+}
