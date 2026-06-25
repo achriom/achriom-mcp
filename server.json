@@ -12,14 +12,7 @@
   "remotes": [
     {
       "type": "streamable-http",
-      "url": "https://mcp.achriom.com/mcp?api_key={api_key}",
-      "variables": {
-        "api_key": {
-          "description": "Your Achriom API key. Get from app.achriom.com/settings → Connect to AI Tools",
-          "isRequired": false,
-          "isSecret": true
-        }
-      }
+      "url": "https://mcp.achriom.com/mcp"
     }
   ]
 }

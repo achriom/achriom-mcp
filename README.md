@@ -26,30 +26,41 @@ Plus 10 librarian prompts that shape how AI engages with your collection.
 
 Requires a paid Claude plan (Pro, Max, Team, or Enterprise).
 
+**Option 1: Plugin (recommended)**
+
+Includes MCP access plus Achriom-specific skills built for Claude.
+
+1. Go to **Settings → Plugins**
+2. Click **Add plugins**
+3. Paste this URL and install:
+   ```
+   https://github.com/achriom/achriom-claude-plugin.git
+   ```
+4. Sign in with your Achriom account
+
+**Option 2: Connector (MCP only)**
+
 1. Go to **Settings → Connectors**
-2. Click **Add custom connector**
-3. Enter the name **Achriom** and your MCP URL from [Achriom settings](https://app.achriom.com/settings)
-4. Follow the auth prompts to connect
+2. Click **Add** → **Add custom connector**
+3. Enter the name **Achriom** and URL `https://mcp.achriom.com/mcp`
+4. Click **Connect** and sign in with your Achriom account
 
 ### ChatGPT
 
-Requires Developer Mode (Plus or Pro).
+No Developer Mode required.
 
-1. **Settings → Apps** → Enable Developer mode
-2. **Settings → Connectors** → Create
-3. Name: **Achriom**
-4. URL: `mcp.achriom.com/mcp`
-5. Auth: **OAuth** → sign in with your Achriom account
+1. Open the [Achriom ChatGPT app](https://chatgpt.com/apps/achriom/asdk_app_698a63a87aa081918a6532ccf4cbc1a1)
+2. Sign in with your Achriom account
 
 ### Other MCP Clients
 
-For Cursor, Windsurf, and any HTTP MCP client, use your personal API key:
+Use the MCP URL with OAuth:
 
 ```
-https://mcp.achriom.com/mcp?api_key=YOUR_KEY
+https://mcp.achriom.com/mcp
 ```
 
-Get your API key from [account settings](https://app.achriom.com/settings).
+Connection details at [app.achriom.com/mcp](https://app.achriom.com/mcp).
 
 ## In-App vs External
 

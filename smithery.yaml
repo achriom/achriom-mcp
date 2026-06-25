@@ -1,5 +1,5 @@
 # Achriom MCP Server - Smithery Configuration
-# https://smithery.ai/docs/build/project-config/smithery-yaml
+# https://smithery.ai/docs
 
 name: achriom
 displayName: Achriom
@@ -14,33 +14,21 @@ runtime: remote
 # Connection configuration
 startCommand:
   type: http
-  # Base URL - api_key will be appended as query parameter
   url: https://mcp.achriom.com/mcp
 
-  # Configuration schema for user-provided settings
+  # No user-provided config needed — auth is OAuth
   configSchema:
     type: object
-    properties:
-      api_key:
-        type: string
-        description: Your Achriom API key (get from app.achriom.com/settings)
+    properties: {}
     required: []
-
-  # How to construct the final URL with config values
-  # Result: https://mcp.achriom.com/mcp?api_key={api_key}
-  urlTemplate: "https://mcp.achriom.com/mcp?api_key={{api_key}}"
 
 # Authentication methods supported
 authentication:
-  # Primary: API key as query parameter
-  api_key:
-    parameter: api_key
-    location: query_string
-    obtain: "Get from app.achriom.com/settings → Connect to AI Tools"
-  # Secondary: OAuth for ChatGPT
   oauth:
     supported: true
     provider: achriom
+    authorize: "https://app.achriom.com/oauth/authorize"
+    obtain: "Sign in with your Achriom account at app.achriom.com/mcp"
 
 # Server capabilities
 capabilities:
