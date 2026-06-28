@@ -5,9 +5,14 @@
   "description": "The media memory layer for AI agents and their humans. Books, movies, music, shows, and anime.",
   "version": "1.0.0",
   "websiteUrl": "https://www.achriom.com/mcp",
+  "icons": [
+    { "src": "https://app.achriom.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] },
+    { "src": "https://app.achriom.com/icon-192.png", "mimeType": "image/png", "sizes": ["192x192"] }
+  ],
   "repository": {
     "url": "https://github.com/achriom/achriom-mcp",
-    "source": "github"
+    "source": "github",
+    "id": "1154598548"
   },
   "remotes": [
     {
