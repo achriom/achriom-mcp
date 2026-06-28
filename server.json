@@ -3,7 +3,7 @@
   "name": "com.achriom/achriom",
   "title": "Achriom",
   "description": "The media memory layer for AI agents and their humans. Books, movies, music, shows, and anime.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "websiteUrl": "https://www.achriom.com/mcp",
   "icons": [
     { "src": "https://app.achriom.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] },
