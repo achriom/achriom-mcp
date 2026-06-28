@@ -12,7 +12,7 @@
       "support": "hello@achriom.com"
     },
     "version": "1.0.0",
-    "updated": "2026-02-18"
+    "updated": "2026-06-28"
   },
 
   "description": {
@@ -46,7 +46,7 @@
     },
 
     "prompts": {
-      "count": 10,
+      "count": 15,
       "list": [
         {"name": "librarian", "purpose": "Core persona - warm, insightful engagement"},
         {"name": "book-analysis", "purpose": "Deep literary analysis"},
@@ -57,7 +57,12 @@
         {"name": "recommendations", "purpose": "Cross-media suggestions by mood/theme"},
         {"name": "collection-insights", "purpose": "Pattern recognition across library"},
         {"name": "focused-research", "purpose": "Deep dive on curated subset"},
-        {"name": "stop-slop", "purpose": "Writing quality filter"}
+        {"name": "stop-slop", "purpose": "Writing quality filter"},
+        {"name": "deep-dive", "purpose": "Full analysis of a single item across all angles"},
+        {"name": "discover", "purpose": "Trace a theme or mood across the entire collection"},
+        {"name": "recommend", "purpose": "Personalized recommendation with collection mining"},
+        {"name": "collection-review", "purpose": "Full collection audit with taste profile"},
+        {"name": "research", "purpose": "Focused research mode on a curated subset"}
       ]
     },
 
@@ -72,17 +77,10 @@
   "requirements": {
     "auth": {
       "methods": {
-        "api_key": {
-          "parameter": "api_key",
-          "location": "query_string",
-          "format": "achriom_*",
-          "obtain": "Pre-generated in app settings, just copy",
-          "settings_path": "/settings → Connect to AI Tools"
-        },
         "oauth": {
           "supported": true,
           "provider": "achriom",
-          "note": "Used by Claude and ChatGPT connectors"
+          "note": "Sign in with your Achriom account. No API key required."
         }
       }
     },
@@ -100,17 +98,15 @@
   "installation": {
     "mcp_config": {
       "type": "http",
-      "url": "https://mcp.achriom.com/mcp?api_key={{API_KEY}}"
+      "url": "https://mcp.achriom.com/mcp"
     },
     "steps_mcp_clients": [
-      "Go to Settings → Connect to AI Tools",
-      "Copy your MCP link",
-      "Add to your MCP client config"
+      "Add the MCP URL to your client config: https://mcp.achriom.com/mcp",
+      "Sign in with your Achriom account when prompted (OAuth)"
     ],
     "steps_chatgpt": [
-      "Enable Developer Mode in ChatGPT settings",
-      "Create connector with URL: https://mcp.achriom.com/mcp",
-      "Set auth to OAuth, sign in with Achriom account"
+      "Open the Achriom ChatGPT app",
+      "Sign in with your Achriom account"
     ],
     "support": "hello@achriom.com",
     "verify": {
