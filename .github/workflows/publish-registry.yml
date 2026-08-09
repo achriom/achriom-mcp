@@ -1,0 +1,46 @@
+name: Publish to MCP Registry
+
+# server.json in this repo is the canonical manifest. Merging a change to it
+# (with a bumped version) publishes to registry.modelcontextprotocol.io, and
+# every directory that mirrors the official registry follows. No manual
+# publishing, no tokens on laptops.
+#
+# Requires one repo secret: MCP_REGISTRY_ED25519_KEY — the hex ed25519 private
+# key whose public half is in the achriom.com DNS TXT proof record.
+#
+# Publishing the same version twice fails; that is the desired guard. Bump
+# "version" in server.json as part of any change you want published.
+
+on:
+  push:
+    branches: [main]
+    paths: ["server.json"]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install mcp-publisher
+        run: |
+          curl -sL "https://github.com/modelcontextprotocol/registry/releases/latest/download/mcp-publisher_$(uname -s | tr '[:upper:]' '[:lower:]')_$(uname -m | sed 's/x86_64/amd64/').tar.gz" \
+            | tar xz mcp-publisher
+          sudo mv mcp-publisher /usr/local/bin/
+
+      - name: Login (DNS proof for com.achriom)
+        run: mcp-publisher login dns --algorithm ed25519 --domain achriom.com --private-key "$MCP_KEY"
+        env:
+          MCP_KEY: ${{ secrets.MCP_REGISTRY_ED25519_KEY }}
+
+      - name: Publish
+        run: mcp-publisher publish
+
+      - name: Verify
+        run: |
+          VERSION=$(python3 -c "import json;print(json.load(open('server.json'))['version'])")
+          LATEST=$(curl -s "https://registry.modelcontextprotocol.io/v0/servers?search=achriom" \
+            | python3 -c "import sys,json;d=json.load(sys.stdin);print(next(s['server']['version'] for s in d['servers'] if s['_meta']['io.modelcontextprotocol.registry/official']['isLatest']))")
+          echo "manifest=$VERSION registry-latest=$LATEST"
+          test "$VERSION" = "$LATEST"
