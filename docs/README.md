@@ -4,8 +4,8 @@ Detailed documentation for developers and agents integrating with the Achriom MC
 
 ## Contents
 
-- **[TOOLS.md](TOOLS.md)** — All 29 tools with parameters and examples
-- **[PROMPTS.md](PROMPTS.md)** — 10 librarian prompts that shape AI engagement
+- **[TOOLS.md](TOOLS.md)**: all 43 tools with parameters and examples
+- **[PROMPTS.md](PROMPTS.md)**: 15 librarian prompts that shape AI engagement
 
 ## Quick Links
 

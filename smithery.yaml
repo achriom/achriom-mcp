@@ -4,9 +4,9 @@
 name: achriom
 displayName: Achriom
 description: |
-  The media memory layer for AI agents and their humans. Track, analyze, and get
-  recommendations across books, movies, music, TV shows, and anime with an AI
-  librarian that knows your taste.
+  The media memory layer for AI agents and their humans. Track, analyze, curate
+  lists, and get recommendations across books, movies, music, TV shows, anime,
+  podcasts, and games with an AI librarian that knows your taste.
 
 # Achriom is a remote hosted server - not built/deployed by Smithery
 runtime: remote
@@ -32,8 +32,8 @@ authentication:
 
 # Server capabilities
 capabilities:
-  tools: 29
-  prompts: 10
+  tools: 43
+  prompts: 15
   resources: true
 
 # Categorization
@@ -51,6 +51,9 @@ tags:
   - albums
   - tv-shows
   - anime
+  - podcasts
+  - games
+  - lists
   - ai-librarian
   - collection-tracking
   - recommendations

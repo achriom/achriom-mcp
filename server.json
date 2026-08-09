@@ -2,8 +2,8 @@
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
   "name": "com.achriom/achriom",
   "title": "Achriom",
-  "description": "The media memory layer for AI agents and their humans. Books, movies, music, shows, and anime.",
-  "version": "1.0.1",
+  "description": "Media memory for AI agents and their humans: books, movies, music, shows, anime, podcasts, games.",
+  "version": "1.1.0",
   "websiteUrl": "https://www.achriom.com/mcp",
   "icons": [
     { "src": "https://app.achriom.com/icon-512.png", "mimeType": "image/png", "sizes": ["512x512"] },

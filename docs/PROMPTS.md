@@ -173,7 +173,7 @@ Trace a theme, mood, or idea across the entire collection.
 
 **Workflow:**
 1. Define the thread (theme, mood, pattern question, or time-based query)
-2. Search across all five media types for the theme
+2. Search across all seven media types for the theme
 3. Pull `get_by_rating(min_rating=4)` and `get_signals()` for pattern context
 4. Map connections: direct matches, indirect matches, surprising matches, cross-media pairs
 5. Find one experiential element — play a track, embed a video, quote a passage
@@ -265,7 +265,7 @@ Cross-media recommendation methodology. Mine collection first, bridge across med
 | Name | Required | Description |
 |------|----------|-------------|
 | `mood` | No | Mood or vibe to match |
-| `media_type` | No | Preferred type: book, movie, album, show, anime |
+| `media_type` | No | Preferred type: book, movie, album, show, anime, game |
 
 ---
 

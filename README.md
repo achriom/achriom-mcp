@@ -1,24 +1,29 @@
 # Achriom MCP Server
 
-The media memory layer for AI agents and their humans. Your AI client gets 29 tools to search your collection, add items, update ratings, preview music, and find patterns across everything you've read, watched, and listened to.
+The media memory layer for AI agents and their humans. Your AI client gets 43 tools to search your collection, add items, update ratings, preview music, curate lists, and find patterns across everything you've read, watched, listened to, and played.
 
 Access your Achriom library from Claude, ChatGPT, or any MCP-compatible client.
 
-**29 tools** · **10 prompts** · **5 media types** · **Free for all accounts**
+**43 tools** · **15 prompts** · **7 media types** · **Free for all accounts**
 
 ## What You Get
 
-Everything the in-app librarian uses:
+Everything the in-app librarian uses, across books, movies, albums, TV shows, anime, podcasts, and games:
 
-- **Search** — By title, creator, genre, theme, or mood
-- **Item details** — Full metadata with AI analysis and your notes
-- **Collection stats** — Patterns across ratings, genres, themes
-- **Read and write** — Update ratings, status, notes from any client
-- **Apple Music previews** — 30-second samples for albums
-- **YouTube search** — Trailers, interviews, video essays
-- **Book search** — Semantic search inside uploaded EPUBs
+- **Search**: by title, creator, genre, theme, or mood, with semantic search across the whole library
+- **Item details**: full metadata with AI analysis and your notes
+- **Collection stats**: patterns across ratings, genres, themes
+- **Read and write**: update ratings, status, notes, and priority from any client
+- **Lists**: cross-media lists you curate, mixtapes for everything you love, shareable from the app
+- **Progress**: page counts, season and episode tracking, repeat plays and rereads
+- **Games**: platforms, time to beat, screenshots, and franchises
+- **Apple Music previews**: 30-second samples for albums
+- **YouTube search**: trailers, interviews, video essays
+- **Book search**: semantic search inside uploaded EPUBs
 
-Plus 10 librarian prompts that shape how AI engages with your collection.
+Plus 15 librarian prompts that shape how AI engages with your collection.
+
+Game data is powered by IGDB.com.
 
 ## Connect
 
