@@ -1,6 +1,6 @@
 # Achriom MCP Tools
 
-Complete reference for all 43 tools available in the Achriom MCP server.
+Complete reference for all 55 tools available in the Achriom MCP server.
 
 ## Media Types
 
@@ -12,6 +12,7 @@ Most tools require a `media_type` parameter:
 - `anime`
 - `podcast`
 - `game`
+- `manga` (manga, manhwa, and manhua)
 
 A few tools are type-specific: `set_format` is books only, `set_progress` covers books, shows, and anime, and `get_show_progress` / `mark_tv_watched` are shows only.
 
@@ -188,9 +189,24 @@ Re-fetch metadata from external sources for an item whose data is incomplete. Th
 
 ---
 
+### `get_recommendations`
+What people with overlapping taste also liked, drawn from other Achriom libraries in aggregate, never anyone's individual list. With no arguments, picks across all media from everything you rated 4+ or finished. With `based_on` or `item_id`: people who liked this also liked. Skips what you already have; each pick carries an `external_id` ready for `add_item`.
+
+```json
+{
+  "name": "get_recommendations",
+  "arguments": {
+    "based_on": "Piranesi",
+    "limit": 8
+  }
+}
+```
+
+---
+
 ## Lists
 
-Private, cross-media collections you curate. Items from any media type can share one list.
+Cross-media collections you curate. Items from any media type can share one list. A list is private until you choose otherwise: shared by link, or public on your page.
 
 ### `create_list`
 Create a named list, with an optional one-line description.
@@ -247,6 +263,33 @@ With a name, returns that list's items in order. Without a name, returns all lis
 
 ---
 
+### `update_list`
+Rename a list, set or clear its description, change who can see it (`private`, `link` for anyone with the share link, `public` for your page too), or edit one entry's note or position. Public list names and descriptions are checked before they appear on your page.
+
+```json
+{
+  "name": "update_list",
+  "arguments": {
+    "list_name": "Halloween marathon",
+    "visibility": "link"
+  }
+}
+```
+
+### `delete_list`
+Delete a list. Everything on it stays in the library.
+
+```json
+{
+  "name": "delete_list",
+  "arguments": {
+    "list_name": "Halloween marathon"
+  }
+}
+```
+
+---
+
 ## Status, Ratings & Progress
 
 ### `update_status`
@@ -280,6 +323,19 @@ Set a rating from 0.5 to 5 stars, in half-star increments.
     "media_type": "movie",
     "title": "Blade Runner",
     "rating": 4.5
+  }
+}
+```
+
+### `clear_rating`
+Remove your rating from an item, leaving it unrated; the undo for `update_rating`.
+
+```json
+{
+  "name": "clear_rating",
+  "arguments": {
+    "media_type": "album",
+    "title": "Blue"
   }
 }
 ```
@@ -377,6 +433,53 @@ Log a completion or a repeat with a date. The first finish is tracked by status;
     "title": "Heat",
     "event_type": "rewatched",
     "event_date": "2026-08-01"
+  }
+}
+```
+
+### `bulk_log_events`
+Log finishes and repeats for many items in one call (up to 250). Each entry takes `media_type` plus `title` or `item_id`, and optionally `event_type`, `event_date`, `rating`, and `notes`. An ambiguous title is skipped and reported, never guessed. Built for imports that carry finish dates.
+
+```json
+{
+  "name": "bulk_log_events",
+  "arguments": {
+    "events": [
+      {
+        "media_type": "book",
+        "title": "Dune",
+        "event_type": "reread",
+        "event_date": "2019"
+      }
+    ]
+  }
+}
+```
+
+### `delete_event`
+Delete a logged finish or repeat; the undo for `log_event`. Choose by `event_date`, `event_id`, or `all`. With more than one event and none chosen, nothing is deleted and the events are listed with their ids.
+
+```json
+{
+  "name": "delete_event",
+  "arguments": {
+    "media_type": "movie",
+    "title": "Heat",
+    "event_date": "2026-08-01"
+  }
+}
+```
+
+### `set_dates`
+Set or clear an item's `started_at`, `finished_at`, and `added_at`. Each takes YYYY-MM-DD, YYYY-MM, or YYYY (a year stays a year, never turned into January 1st), or `none` to clear.
+
+```json
+{
+  "name": "set_dates",
+  "arguments": {
+    "media_type": "book",
+    "title": "Dune",
+    "finished_at": "2009"
   }
 }
 ```
@@ -506,6 +609,86 @@ Read a specific section by line numbers, up to 200 lines.
     "book_title": "1984",
     "start_line": 100,
     "end_line": 150
+  }
+}
+```
+
+---
+
+## Public Page
+
+What shows on your public profile. Everything stays in your library either way.
+
+### `set_favorite`
+Mark or unmark an item as a favorite (the heart in the app). Favorites are kept on your favorites list.
+
+```json
+{
+  "name": "set_favorite",
+  "arguments": {
+    "media_type": "album",
+    "title": "Blue",
+    "favorite": true
+  }
+}
+```
+
+### `set_profile_favorites`
+Choose the favorites shown for one media type on your public page, in order, up to four. Replaces the current choice; an empty list clears it.
+
+```json
+{
+  "name": "set_profile_favorites",
+  "arguments": {
+    "media_type": "book",
+    "titles": [
+      "Piranesi",
+      "The Secret History",
+      "Station Eleven",
+      "Gilead"
+    ]
+  }
+}
+```
+
+### `set_review`
+Write or replace your review of something you've finished. Private by default; `public` puts it on your page and the title's page after a community check. Mark spoilers with `spoiler`.
+
+```json
+{
+  "name": "set_review",
+  "arguments": {
+    "media_type": "movie",
+    "title": "Heat",
+    "body": "The diner scene is the whole film in miniature.",
+    "visibility": "private"
+  }
+}
+```
+
+### `delete_review`
+Delete your review of an item. Rating and notes are untouched.
+
+```json
+{
+  "name": "delete_review",
+  "arguments": {
+    "media_type": "movie",
+    "title": "Heat"
+  }
+}
+```
+
+### `set_hidden`
+Leave one item off your public page, or let it show again.
+
+```json
+{
+  "name": "set_hidden",
+  "arguments": {
+    "media_type": "game",
+    "title": "Animal Crossing: New Horizons",
+    "hidden": true
   }
 }
 ```

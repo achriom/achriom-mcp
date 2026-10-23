@@ -11,13 +11,13 @@
       "github": "achriom",
       "support": "hello@achriom.com"
     },
-    "version": "1.1.0",
-    "updated": "2026-08-09"
+    "version": "1.2.0",
+    "updated": "2026-10-23"
   },
 
   "description": {
-    "short": "The media memory layer for AI agents and their humans. Your AI client gets 43 tools to search your collection, add items, update ratings, preview music, curate lists, and find patterns across everything you've read, watched, listened to, and played.",
-    "long": "Achriom is a personal library that unifies your media collection across seven types: books, movies, albums, TV shows, anime, podcasts, and games. The AI librarian learns your patterns, surfaces connections you'd miss, and recommends what to experience next based on mood, theme, or gap in your collection. MCP access gives any AI assistant full librarian capabilities. Game data is powered by IGDB.com.",
+    "short": "The media memory layer for AI agents and their humans. Your AI client gets 55 tools to search your collection, add items, update ratings, preview music, curate lists, and find patterns across everything you've read, watched, listened to, and played.",
+    "long": "Achriom is a personal library that unifies your media collection across eight types: books, movies, albums, TV shows, anime, podcasts, games, and manga. The AI librarian learns your patterns, surfaces connections you'd miss, and recommends what to experience next based on mood, theme, or gap in your collection. MCP access gives any AI assistant full librarian capabilities. Game data is powered by IGDB.com.",
     "use_cases": [
       "Track what you've read, watched, listened to, and played",
       "Get recommendations based on mood or theme",
@@ -26,7 +26,10 @@
       "Curate cross-media lists that mix any media types",
       "Track TV season and episode progress, book pages, and repeat plays",
       "Search inside uploaded books (EPUB/PDF)",
-      "Preview albums before adding to collection"
+      "Preview albums before adding to collection",
+      "Fix dates and history from imports (year-only finishes stay years)",
+      "Get recommendations from people with overlapping taste, across media",
+      "Manage a public page: favorites, reviews, hidden items, list visibility"
     ]
   },
 
@@ -36,19 +39,20 @@
     "transport": "streamable-http",
 
     "tools": {
-      "count": 43,
+      "count": 55,
       "categories": {
-        "search": ["search", "search_library", "lookup_item", "random_pick", "get_recently_added"],
+        "search": ["search", "search_library", "lookup_item", "random_pick", "get_recently_added", "get_recommendations"],
         "details": ["get_details", "get_stats", "get_context", "get_timeline"],
         "manage": ["add_item", "bulk_add_items", "delete_item", "edit_item", "re_enrich"],
-        "lists": ["create_list", "add_to_list", "remove_from_list", "get_list"],
-        "status": ["update_status", "update_rating", "update_notes", "set_priority", "bulk_update_status", "get_by_status", "get_by_rating"],
-        "progress": ["set_progress", "set_format", "mark_tv_watched", "get_show_progress", "log_event"],
+        "lists": ["create_list", "add_to_list", "remove_from_list", "get_list", "update_list", "delete_list"],
+        "status": ["update_status", "update_rating", "update_notes", "set_priority", "bulk_update_status", "get_by_status", "get_by_rating", "clear_rating", "set_favorite"],
+        "progress": ["set_progress", "set_format", "mark_tv_watched", "get_show_progress", "log_event", "set_dates", "delete_event", "bulk_log_events"],
         "media": ["get_track_previews", "preview_album", "search_youtube"],
         "books": ["search_book_content", "read_book_section"],
         "research": ["expand_research_scope", "get_scope_info", "search_conversations"],
         "insights": ["get_user_profile", "save_insight", "get_signals", "get_taste_portrait"],
-        "navigation": ["show_item"]
+        "navigation": ["show_item"],
+        "public_page": ["set_review", "delete_review", "set_hidden", "set_profile_favorites"]
       }
     },
 
@@ -73,7 +77,7 @@
       ]
     },
 
-    "media_types": ["book", "movie", "album", "show", "anime", "podcast", "game"],
+    "media_types": ["book", "movie", "album", "show", "anime", "podcast", "game", "manga"],
 
     "resources": {
       "user_profile": "Persistent profile from past conversations",
@@ -93,11 +97,11 @@
     },
     "account": {
       "required": true,
-      "signup": "https://app.achriom.com/signup"
+      "signup": "https://www.achriom.com/signup"
     },
     "subscription": {
       "required": false,
-      "notes": "MCP access is free for all accounts. Pro removes the 50-message cap.",
+      "notes": "MCP access is free on every plan. Pro adds more librarian messages in the app, every Taste reading, and search inside uploaded books.",
       "free_tier_available": true
     }
   },
@@ -144,7 +148,7 @@
       "Persistent memory of user's taste profile"
     ],
     "differentiators": [
-      "Unified across 7 media types in one library: books, movies, albums, shows, anime, podcasts, games",
+      "Unified across 8 media types in one library: books, movies, albums, shows, anime, podcasts, games, manga",
       "Cross-media lists that hold any mix of media types",
       "AI analysis built in alongside the tracking",
       "Prompts shape engagement style as well as data access",
